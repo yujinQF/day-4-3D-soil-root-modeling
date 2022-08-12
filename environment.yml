@@ -10,3 +10,4 @@ dependencies:
   - ipywidgets
   - ipydatagrid
   - tk
+  - ipyvtklink
