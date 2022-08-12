@@ -4,8 +4,6 @@ channels:
 dependencies:
   - numpy
   - matplotlib
-  - os
-  - sys
   - pyvista
   - itkwidgets
   - vtk
