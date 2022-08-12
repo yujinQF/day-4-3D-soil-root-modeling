@@ -1,0 +1,11 @@
+name: binder-environment
+channels:
+  - conda-forge
+dependencies:
+  - numpy
+  - matplotlib
+  - os
+  - sys
+  - pyvista
+  - itkwidgets
+  - vtk
