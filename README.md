@@ -8,7 +8,5 @@ In this repository you will use
 
 To visualise the results of your R-SWMS simulations
 
-you can launch the notebook here: [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/water-fluxes/day-4-3D-soil-root-modeling/HEAD)
-
-you can lauch a colab notebook here: 
+you can download the jupyter notebook from this github to use locally on your machine, or you can lauch a colab notebook here: 
 https://colab.research.google.com/github/water-fluxes/day-4-3D-soil-root-modeling/blob/main/Plots.ipynb
