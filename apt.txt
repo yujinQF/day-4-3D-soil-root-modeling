@@ -1,4 +1,0 @@
-libgl1-mesa-glx
-vtk6
-libvtk6-dev python-vtk6
-xvfb
