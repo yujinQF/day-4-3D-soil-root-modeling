@@ -1,0 +1,54 @@
+# define coupling with Partrace (0 = no, 1 = yes)
+PARTRACE = 0
+
+# define compiler
+# AGROCLUSTER
+ifeq ($(PARTRACE),1)
+     F90C = mpifort
+     CC = mpicc
+     CXX = mpic++
+     CPP = cpp
+     LD = $(F90C)
+else
+     F90C = gfortran
+     CC = gcc
+     CXX =g++
+     CPP = cpp
+     LD = $(F90C)
+endif
+
+# define compiler flags
+F90FLAGS =  -O0 -g -ffree-line-length-none -fimplicit-none -Wall -Wtabs -std=f2008ts -mcmodel=medium -fcheck=all -fbounds-check -fbacktrace
+#F90FLAGS =  -O0 -g -ffree-line-length-none -fimplicit-none -Wall -Wtabs -fsanitize=undefined -fsanitize=address -mcmodel=medium -fcheck=all -fbounds-check -fbacktrace
+#F90FLAGS = -O3 -g          -ffree-line-length-none -fimplicit-none -Wno-unused  -fdump-ipa-inline -finline-functions-called-once -fearly-inlining -fipa-matrix-reorg -findirect-inlining -mstringop-strategy=unrolled_loop --param large-function-insns=120000 --param large-unit-insns=120000 --param large-function-growth=1000 --param inline-unit-growth=1000 --param max-inline-insns-recursive-auto=120000 --param max-inline-recursive-depth-auto=5000 -finline-limit=150
+CFLAGS = -O2 -g -Wno-unused-result
+CXXFLAGS = -O2
+CPPFLAGS = -P -Wno-trigraphs
+
+# define linker flags
+#LDFLAGS = -O0 -fhole-program -fnews-linker-plugin 
+LDFLAGS = -fopenmp
+
+# define additional libs to link
+# JSC
+#LDLIBS = -lstdc++ -L../sparskit/ -lskit -lblas -pthread -L../Lib/ -lmumps_common -ldmumps -lmumps_common -lpord -lmpiseq  -L/usr/lib64/atlas/ -latlas	
+# AGROCLUSTER
+LDLIBS = -lstdc++ -L../sparskit/ -lskit -lblas -pthread -lmumps_common -ldmumps -lpord -llapack
+#LDLIBS = -lasan -lubsan -lstdc++ -L../sparskit/ -lskit -lblas -pthread -lmumps_common -ldmumps -lpord -lmpi -lmpi_cxx -llapack
+#LDLIBS = -lstdc++ -L../sparskit/ -lskit -lblas -pthread -L/usr/lib64 -lmumps_common  -ldmumps -lpord -L/usr/lib -lmpi -L/usr/lib64/openmpi/lib/ -lscalapack -lmpiblacsCinit -lmpiblacsF77init  -lmpiblacs -L/usr/lib -llapack
+# ICG4LTS
+#LDLIBS = -lstdc++ -L../sparskit/ -lskit -lblas -pthread  -lmumps_common_seq  -ldmumps_seq -lpord -lmpiseq_seq  -llapack
+ifeq ($(PARTRACE),1)
+      LDLIBS += -lmpi -lmpi_cxx
+endif
+# makefile variables
+SRC_RSWMS = src_rswms
+SRC_PARTRACE = src_partrace
+SPARSKIT = sparskit
+BUILDDIR = .build
+LIBRSWMS = $(BUILDDIR)/librswms.a
+LIBPARTRACE = $(BUILDDIR)/libpartrace.a
+LIBSPARSKIT = $(SPARSKIT)/libskit.a
+
+PROGRAM = rswms
+
