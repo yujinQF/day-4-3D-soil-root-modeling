@@ -1,0 +1,8 @@
+**********UPPER BOUNDARY CONDITIONS FOR ROOT (RSWMS10)*************
+
+* Type of funBC    fac_plant1 
+	3           		 1
+* Number of boundary conditions (nBCr) ; Number of interpolation time for specific functions (sinus & jump)
+		1									100
+* t; BCtype (1=PH/ 2=FLUX); BCvalue (if BCfun= 2, BC value is the constant value; if BCfun = 3 or 4 BCvalue is the daily transpiration)
+   

@@ -1,0 +1,8 @@
+***** SOIL PARAMETERS *****
+
+nMat	hTab1  hTab2	nTab
+1	100000.      100000.1  100
+
+NMod 		thr  	ths  		a   		 n     Ks  lambda		w2	a2	n2	rhob
+1			.0 	     .3308  	0.0143	 2.0	200.0      0.5		0	0		0	1.2
+

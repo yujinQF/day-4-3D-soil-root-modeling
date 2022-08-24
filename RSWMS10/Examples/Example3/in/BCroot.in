@@ -1,0 +1,9 @@
+***UPPER BOUNDARY CONDITIONS FOR ROOT (R-SWMS10)***
+
+funBC   fac_plant1 
+3           1
+Number of boundary conditions (nBCr)
+1	 		
+tBCr typeBCr BCroot
+20.2   	2     10
+   
